@@ -36,7 +36,10 @@ if [ $projects_exit_code -ne 0 ]; then
 fi
 
 if [ $reports_exit_code -eq 0 ] && [ $projects_exit_code -eq 0 ]; then
-    echo "Upload SUCCESSFUL"
+    echo "Upload SUCCESSFUL"; 
 fi
 
 printf '\n##################\n\n'
+
+if [ $reports_exit_code -ne 0 ] || [ $projects_exit_code -ne 0 ]; then
+    exit 1
