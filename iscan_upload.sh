@@ -15,7 +15,7 @@ do
         VARNAME=$(echo "$LINE" | cut -d '=' -f 1)
         CONFIG[$VARNAME]=$(echo "$LINE" | cut -d '=' -f 2-)
     fi
-done < iscan_upload.conf
+done < $ISCAN_CONFIG_PATH 
 
 for DATA_SUBDIR in GS_*; do
     ${CONFIG[UPLOAD_AGENT_PATH]}/ua \
