@@ -17,7 +17,7 @@ do
     fi
 done < iscan_upload.conf
 
-for DATA_SUBDIR in GS_reports GS_projects; do
+for DATA_SUBDIR in GS_*; do
     ${CONFIG[UPLOAD_AGENT_PATH]}/ua \
         --auth-token $(cat ${CONFIG[AUTH_TOKEN_PATH]}) \
         --recursive \
