@@ -15,6 +15,12 @@ iScan data and api token must be available (with appropriate permissions) on the
 ## What does this tool output?
 Output/error logs from upload agent
 
+## NOTE TO DEVELOPERS
+
+Please don't commit config files to this repo. We've left it out of `.gitignore` as we don't restrict what
+you can name the config file, and as such can't catch every possibility, so be mindful you don't accidentally
+commit config data to your branch.
+
 # Instructions
 
 ## Setting the config file
