@@ -6,6 +6,7 @@ CONFIG=(
     [ISCAN_DIR]=""
     [UPLOAD_AGENT_PATH]=""
     [DX_PROJECT_ID]=""
+    [ARCHIVE_DIR]=""
 )
 
 while read LINE;
@@ -23,4 +24,11 @@ for DATA_SUBDIR in GS_*; do
         --recursive \
         --project=${CONFIG[DX_PROJECT_ID]} \
         ${CONFIG[ISCAN_DIR]}/${DATA_SUBDIR}
+done
+
+# move all to archive
+for DATA_SUBDIR in GS_*; do
+    # make it if it doesn't exist
+    mkdir -p ${CONFIG[ARCHIVE_DIR]}/${DATA_SUBDIR}
+    mv ${CONFIG[ISCAN_DIR]}/${DATA_SUBDIR}/* ${CONFIG[ARCHIVE_DIR]}/${DATA_SUBDIR}/
 done
