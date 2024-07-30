@@ -18,17 +18,21 @@ do
     fi
 done < $ISCAN_CONFIG_PATH 
 
-for DATA_SUBDIR in GS_*; do
+for DATA_SUBDIR in ${CONFIG[ISCAN_DIR]}/GS_*; do
+    SUBDIR_NAME=$(basename $DATA_SUBDIR)
     ${CONFIG[UPLOAD_AGENT_PATH]}/ua \
         --auth-token $(cat ${CONFIG[AUTH_TOKEN_PATH]}) \
         --recursive \
         --project=${CONFIG[DX_PROJECT_ID]} \
-        ${CONFIG[ISCAN_DIR]}/${DATA_SUBDIR}
+        ${CONFIG[ISCAN_DIR]}/${SUBDIR_NAME}
 done
 
 # move all to archive
-for DATA_SUBDIR in GS_*; do
+echo "Archiving data..."
+for DATA_SUBDIR in ${CONFIG[ISCAN_DIR]}/GS_*; do
+    SUBDIR_NAME=$(basename $DATA_SUBDIR)
     # make it if it doesn't exist
-    mkdir -p ${CONFIG[ARCHIVE_DIR]}/${DATA_SUBDIR}
-    mv ${CONFIG[ISCAN_DIR]}/${DATA_SUBDIR}/* ${CONFIG[ARCHIVE_DIR]}/${DATA_SUBDIR}/
+    mkdir -p ${CONFIG[ARCHIVE_DIR]}/${SUBDIR_NAME}
+    mv ${CONFIG[ISCAN_DIR]}/${SUBDIR_NAME}/* ${CONFIG[ARCHIVE_DIR]}/${SUBDIR_NAME}/
 done
+echo "done"

@@ -32,6 +32,7 @@ AUTH_TOKEN_PATH=
 ISCAN_DIR=
 UPLOAD_AGENT_PATH=
 DX_PROJECT_ID=
+ARCHIVE_DIR=
 ```
 
 The config fields are defined as follows:
@@ -40,6 +41,7 @@ The config fields are defined as follows:
 - `ISCAN_DIR`: path to parent folder containing iScan output data
 - `UPLOAD_AGENT_PATH`: path to DNANexus Upload Agent executable (see https://documentation.dnanexus.com/downloads#upload-agent)
 - `DX_PROJECT_ID`: Target DNANexus project identifier
+- `ARCHIVE_DIR`: path to a folder where files will be moved after upload. The subdirectory file structure remains the same for each dataset moved to archive.
 
 See `iscan_upload.conf.example` for a template.
 
