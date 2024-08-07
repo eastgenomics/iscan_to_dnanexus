@@ -35,7 +35,7 @@ for DATA_SUBDIR in ${CONFIG[ISCAN_DIR]}/GS_*; do
         --recursive \
         --project=${CONFIG[DX_PROJECT_ID]} \
         ${CONFIG[ISCAN_DIR]}/${SUBDIR_NAME}
-    if [ $? != 0]; then
+    if [ $? != 0 ]; then
         echo "ERROR - SEE LOGS"
         exit 1
     fi
